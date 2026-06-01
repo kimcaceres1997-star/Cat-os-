@@ -43,3 +43,5 @@ Para evitar entrar en bucles de demostración y mantener la pantalla nítida, la
 ## 🛠️ Instrucciones del Compartimiento
 
 Para agregar nuevos módulos o bloques lógicos personalizados, edita directamente el archivo `codigo.tmh` inyectando las reglas en el bus de datos de los registros (`REG_0` a `REG_3`).
+|unif| |yfyh|
+|""||uvhnnj|
