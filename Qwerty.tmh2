@@ -1,0 +1,33 @@
+// ==========================================
+// ARQUITECTURA TMH2 - CONTROL DE PROCESADOR
+// PROYECTO: Gato Nuevo (Bucle de 2000 Vueltas)
+// ==========================================
+
+[CONFIGURACION]
+bits_sistema = 9
+velocidad_reloj = 2000hz
+modo_operacion = LVE_RUN
+
+[BLOQUES_ENTRADA]
+// Registra los impulsos del teclado o periféricos
+IN_01 = TECLA_DERECHA  => ">"   // Símbolo de avance
+IN_02 = TECLA_ESPACIO  => "?"   // Símbolo de condición/salto
+
+[PROCESAMIENTO_CMH]
+// Aquí corre la magia del inversor de un solo objetivo (~ )
+SI IN_01 == ">" ENTONCES
+    ENVIAR_SEÑAL(GATO_NUEVO, AVANCE, 1)
+SINO
+    ENVIAR_SEÑAL(GATO_NUEVO, AVANCE, 0)
+FIN_SI
+
+SI IN_02 == "?" ENTONCES
+    // Aplicamos el inversor lógico en el bus de 9 bits
+    INVERSOR_LOGICO("~", OBJETIVO_UNICO)
+    SUEÑO_GATO = FALDO_FRIENDS_PERFECTO
+FIN_SI
+
+[OUTPUT_RENDER]
+// Dibuja el resultado en la pantalla limpia del patio de juegos
+REPRODUCIR_ANIMACION = "gato-nuevo.gif"
+VELOCIDAD_CARRERA = CAT_COIN * 1.5
